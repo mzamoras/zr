@@ -1,0 +1,479 @@
+{
+    "clients": [
+        {
+            "name": "Ford",
+            "id": 1,
+            "steps": [
+                { 
+                  "name": "General Information",
+                  "title": "Going electric starts with understanding your needs",
+                  "subtitle": "We need to understand your requirements so we can recommend the appropriate electric vehicle, charger and identify incentives.",
+                  "icons": [
+                    {
+                        "icon": "group_work",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "Tell us about your organization"
+                    },
+                    {
+                        "icon": "directions_car",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "Tell us about your vehicles"
+                    },
+                    {
+                        "icon": "leaderboard",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "See how much you can save"
+                    }
+                  ],
+                  "controls": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Create your first vehicle set",
+                        "action": "next",
+                        "icon": null
+                    }
+                  },
+                  "slug": "general-information"
+                },
+                { 
+                  "name": "General Information",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives.",
+                  "icons": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Next",
+                        "action": "next",
+                        "icon": "keyboard_arrow_right"
+                    },
+                    "prev": {
+                        "label": "Back",
+                        "action": "prev",
+                        "icon": "keyboard_arrow_left"
+                    }
+                  },
+                  "slug": "general-information2",
+                  "controls": [
+                    {
+                        "type": "text",
+                        "label": "Zip Code",
+                        "name": "organization_name",
+                        "defaultValue": "",
+                        "placeholder": "Zip Code",
+                        "helperText": "Used to check incentive applicability and fuel prices",
+                        "validation": {
+                            "required": true,
+                            "minLength": 5,
+                            "maxLength": 6,
+                            "pattern": "^[0-9]+$"
+                        }
+                    }
+                  ]
+                },
+                { 
+                  "name": "General Information",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives.",
+                  "icons": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Next",
+                        "action": "next",
+                        "icon": "keyboard_arrow_right"
+                    },
+                    "prev": {
+                        "label": "Back",
+                        "action": "prev",
+                        "icon": "keyboard_arrow_left"
+                    }
+                  },
+                  "slug": "general-information3",
+                  "controls":[
+                    {
+                        "type": "select",
+                        "label": "Building Type",
+                        "name": "building_type",
+                        "defaultValue": "",
+                        "placeholder": "Zip Code",
+                        "helperText": "Used to check incentive applicability and fuel prices",
+                        "options": [
+                            {
+                                "label": "Home (garage)",
+                                "value": "1"
+                            },
+                            {
+                                "label": "Small Office",
+                                "value": "2"
+                            },
+                            {
+                                "label": "Large Office",
+                                "value": "3"
+                            },
+                            {
+                                "label": "Wharehouse",
+                                "value": "4"
+                            },
+                            {
+                                "label": "Depot",
+                                "value": "5"
+                            },
+                            {
+                                "label": "School",
+                                "value": "6"
+                            },
+                            {
+                                "label": "Apartment Building",
+                                "value": "7"
+                            },
+                            {
+                                "label": "Other",
+                                "value": "8"
+                            }
+                        ],
+                        "validation": {
+                            "required": true,
+                            "min": 1,
+                            "max": 5,
+                            "pattern": "^[a-zA-Z0-9]+$"
+                        }
+                    }
+                  ]
+                },
+                { 
+                  "name": "General Information4",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives 4",
+                  "icons": [],
+                  "slug": "general-information4"
+                }
+            ],
+            "theme": {
+                "light": "#000000",
+                "main": "#0072CE",
+                "dark": "#000000",
+                "barColor": "#B9BCC0",
+                "borderRadius": "8px"
+            },
+            "themeSettings": {
+                "titleStyle": {
+                    "fontWeight": "700",
+                    "letterSpacing": "-0.5px"
+                },
+                "stepperCounterStyle": {
+                    "position": "UP"
+                },
+                "buttonStyle": {
+                    "borderRadius": "25px"
+                },
+                "buttons": {
+                    "sx": {
+                        "borderRadius": "25px",
+                        "padding": "5px 30px"
+                    },
+                    "useIcons": false
+                }
+            }
+        },
+        {
+            "name": "BMW",
+            "id": 2,
+            "steps":[
+                { 
+                  "name": "General Information",
+                  "title": "Going electric starts with understanding your needs",
+                  "subtitle": "We need to understand your requirements so we can recommend the appropriate electric vehicle, charger and identify incentives.",
+                  "icons": [
+                    {
+                        "icon": "group_work",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "Tell us about your organization"
+                    },
+                    {
+                        "icon": "directions_car",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "Tell us about your vehicles"
+                    },
+                    {
+                        "icon": "leaderboard",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "See how much you can save"
+                    }
+                  ],
+                  "controls": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Create your first vehicle set",
+                        "action": "next",
+                        "icon": null
+                    }
+                  },
+                  "slug": "general-information"
+                },
+                { 
+                  "name": "General Information",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives.",
+                  "icons": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Next",
+                        "action": "next",
+                        "icon": "keyboard_arrow_right"
+                    },
+                    "prev": {
+                        "label": "Back",
+                        "action": "prev",
+                        "icon": "keyboard_arrow_left"
+                    }
+                  },
+                  "slug": "general-information2",
+                  "controls": [
+                    {
+                        "type": "text",
+                        "label": "Zip Code",
+                        "name": "organization_name",
+                        "defaultValue": "",
+                        "placeholder": "Zip Code",
+                        "helperText": "Used to check incentive applicability and fuel prices",
+                        "validation": {
+                            "required": true,
+                            "minLength": 5,
+                            "maxLength": 6,
+                            "pattern": "^[0-9]+$"
+                        }
+                    }
+                  ]
+                },
+                { 
+                  "name": "General Information",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives.",
+                  "icons": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Next",
+                        "action": "next",
+                        "icon": null
+                    }
+                  }
+                }
+            ],
+            "themeSettings":{
+                "stepperCounterStyle": {
+                    "position": "DOWN"
+                },
+                "buttons": {
+                    "sx": {},
+                    "useIcons": true
+                }
+            }
+        },
+        {
+            "name": "Tesla",
+            "id": 3
+        },
+        {
+            "name": "Toyota",
+            "id": 4,
+            "steps":[
+                { 
+                  "title": "Going electric with Toyota starts with understanding you.",
+                  "subtitle": "We need to understand your requirements so we can recommend the appropriate electric vehicle, charger and identify incentives.",
+                  "icons": [
+                    {
+                        "icon": "business",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "Tell us about your organization"
+                    },
+                    {
+                        "icon": "electric_car",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "Tell us about your vehicles"
+                    },
+                    {
+                        "icon": "electrical_services",
+                        "size": "64",
+                        "color": "#595959",
+                        "label": "See how much you can save"
+                    }
+                  ],
+                  "controls": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Create your first vehicle set",
+                        "action": "next",
+                        "icon": null
+                    }
+                  },
+                  "slug": "general-information"
+                },
+                { 
+                  "name": "Where are you located?",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives.",
+                  "icons": [
+                    {
+                        "icon": "place",
+                        "size": "64",
+                        "color": "#CC0000",
+                        "label": "Let us know where you are located"
+                    }
+                  ],
+                  "buttons": {
+                    "next": {
+                        "label": "Next",
+                        "action": "next",
+                        "icon": "keyboard_arrow_right"
+                    },
+                    "prev": {
+                        "label": "Back",
+                        "action": "prev",
+                        "icon": "keyboard_arrow_left"
+                    }
+                  },
+                  "slug": "general-information2",
+                  "controls": [
+                    {
+                        "type": "text",
+                        "label": "Zip Code",
+                        "name": "organization_name",
+                        "defaultValue": "",
+                        "placeholder": "Zip Code",
+                        "helperText": "Used to check incentive applicability and fuel prices",
+                        "validation": {
+                            "required": true,
+                            "minLength": 5,
+                            "maxLength": 6,
+                            "pattern": "^[0-9]+$"
+                        }
+                    }
+                  ]
+                },
+                { 
+                  "name": "General Information",
+                  "subtitle": "We use this information to calculate fuel costs and applicable incentives.",
+                  "icons": [],
+                  "buttons": {
+                    "next": {
+                        "label": "Next",
+                        "action": "next",
+                        "icon": "keyboard_arrow_right"
+                    },
+                    "prev": {
+                        "label": "Back",
+                        "action": "prev",
+                        "icon": "keyboard_arrow_left"
+                    }
+                  },
+                  "slug": "general-information3",
+                  "controls":[
+                    {
+                        "type": "select",
+                        "label": "Building Type",
+                        "name": "building_type",
+                        "defaultValue": "",
+                        "placeholder": "Building Type",
+                        "helperText": "Used to check incentive applicability and fuel prices",
+                        "options": [
+                            {
+                                "label": "Home (garage)",
+                                "value": "1"
+                            },
+                            {
+                                "label": "Small Office",
+                                "value": "2"
+                            },
+                            {
+                                "label": "Large Office",
+                                "value": "3"
+                            },
+                            {
+                                "label": "Wharehouse",
+                                "value": "4"
+                            },
+                            {
+                                "label": "Depot",
+                                "value": "5"
+                            },
+                            {
+                                "label": "School",
+                                "value": "6"
+                            },
+                            {
+                                "label": "Apartment Building",
+                                "value": "7"
+                            },
+                            {
+                                "label": "Other",
+                                "value": "8"
+                            }
+                        ]
+                    }
+                  ]
+                },
+                {
+                    "title": "How many vehicles do you have?",
+                    "subtitle":"We use this information to calculate fuel costs and applicable incentives",
+                    "icons":[
+                        {
+                            "icon": "diversity_2",
+                            "size": "64",
+                            "color": "#CC0000",
+                            "label": "Let us know how many vehicles you have"
+                        }
+                    ]
+                }
+            ],
+            "theme": {
+                "light": "#000000",
+                "main": "#CC0000",
+                "dark": "#000000",
+                "barColor": "#FFF",
+                "borderRadius": "8px"
+            },
+            "themeSettings": {
+                "titleStyle": {
+                    "fontWeight": "500",
+                    "letterSpacing": "-0.5px",
+                    "fontFamily": "Work Sans"
+                },
+                "stepperCounterStyle": {
+                    "position": "UP",
+                    "color": "#000000"
+                },
+                "buttonStyle": {
+                    "borderRadius": "25px"
+                },
+                "buttons": {
+                    "sx": {
+                        "padding": "5px 30px"
+                    },
+                    "useIcons": true
+                }
+            }
+        },
+        {
+            "name": "Honda",
+            "id": 5
+        },
+        {
+            "name": "Nissan",
+            "id": 6
+        }
+    ],
+    "customers": [],
+    "users": [
+        {
+            "username": "admin",
+            "password": "zappyride",
+            "id": 1
+        },
+        {
+            "username": "johndoe2",
+            "password": "zappyride",
+            "id": 2
+        }
+    ]
+}
