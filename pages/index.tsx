@@ -56,15 +56,9 @@ const Home: NextPage = () => {
     
     return (
         <Box sx={WrapperBoxStyling}>
-            <Grid container sx={{border: '1px dashed red'}}>
+            <Grid container>
                 <Grid item xs={12} sx={{textAlign: 'center'}}>
-                    <ButtonGroup variant="text" aria-label="text button group">
-                        <Button>Using Api</Button>
-                        <Button>Using Json</Button>
-                    </ButtonGroup>
-                </Grid>
-                <Grid item xs={12} sx={{textAlign: 'center'}}>
-                    <FormControl>
+                    <FormControl sx={{minWidth:300}}>
                         <InputLabel id="demo-simple-select-helper-label">Customer</InputLabel>
                         <Select label="Choose the customer" onChange={onChange} defaultValue="">
                             {clients.map((customer, index) => {

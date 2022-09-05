@@ -6,10 +6,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import StepIndicator from "../../src/components/global/StepIndicatorProps";
+import StepIndicator from "../../src/components/global/StepIndicator";
 import { ButtonSection } from "../../src/components/global/ButtonSection";
 import IconsSection from "../../src/components/global/IconsSection";
-import { ControlsSection } from "../../src/components/global/ControlsSectionProps";
+import { ControlsSection } from "../../src/components/global/ControlsSection";
 import StepTitle from "../../src/components/onboarding/StepTitle";         
 import { ThemeProvider } from '@mui/material/styles';
 

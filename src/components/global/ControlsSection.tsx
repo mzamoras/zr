@@ -2,7 +2,7 @@ import React, { ChangeEvent } from "react";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { ControlInfo } from "../../../pages/api/mockDatabase/databaseHelpers";
-import { CustomSelect } from "./CustomSelectProps";
+import { CustomSelect } from "./CustomSelect";
 import CustomInput from "./CustomInput";
 import { Item } from "./Item";
 

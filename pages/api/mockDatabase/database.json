@@ -429,7 +429,7 @@
             "theme": {
                 "light": "#000000",
                 "main": "#CC0000",
-                "dark": "#000000",
+                "dark": "#AA0000",
                 "barColor": "#FFF",
                 "borderRadius": "8px"
             },

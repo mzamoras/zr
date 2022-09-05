@@ -10,7 +10,7 @@ const theme: ThemeOptions = {
     },
     secondary: {
       light: '#FFB74D',
-      main: '#00AB55',
+      main: '#BBB',
       dark: '#F57C00',
     }
   },

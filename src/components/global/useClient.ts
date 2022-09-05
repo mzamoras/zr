@@ -67,9 +67,9 @@ export function useClientThemeAndSettings(client: Client | null): [ThemeOptions,
                 palette: {
                   mode: 'light',
                   primary: {
-                    light: '#5BE584',
+                    light: client?.theme?.light || '#5BE584',
                     main: client?.theme?.main || '#00AB55',
-                    dark: '#007B55',
+                    dark: client?.theme?.dark || '#007B55',
                   },
                   secondary: {
                     light: '#FFB74D',
