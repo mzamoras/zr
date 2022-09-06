@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
     const onLinkClick = () => {
         if (currentClient) {
-            router.push(`http://localhost:3001/stepper/steps/steps?client=${currentClient.id}`);
+            window.open(`http://localhost:3001/stepper/steps/steps?client=${currentClient.id}`, '_blank');
         }
     };
 

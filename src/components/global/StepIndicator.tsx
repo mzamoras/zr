@@ -1,14 +1,12 @@
 import React from "react";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import {ThemeSettings} from "../../../pages/api/mockDatabase/databaseHelpers";
+import ClientContext from "../../globalContext";
 
 type StepIndicatorProps = {
     children?: React.ReactNode;
     currentStep: number;
     totalSteps: number;
-    clientName?: string;
-    clientSettings?: ThemeSettings;
 };
 const indicatorWrapper = {
     display: 'flex',
@@ -23,23 +21,42 @@ const indicatorElement = {
 };
 
 
-export const StepIndicator = ({ currentStep, totalSteps, clientName, clientSettings }: StepIndicatorProps) => {
+export const StepIndicator = ({ currentStep, totalSteps }: StepIndicatorProps) => {
     const stepsArray = Array.from({ length: totalSteps }, (_, i) => i);
-    const { stepperCounterStyle } = clientSettings || {};
     return (
-        <Box flexGrow={1}>
-            {stepperCounterStyle && stepperCounterStyle.position === 'UP' && <Typography variant="body2" color="inherit" align="center">
-                Step {currentStep + 1} of {totalSteps}
-            </Typography>}
-            <Box sx={indicatorWrapper}>
-                {stepsArray.map((step, index) => (
-                    <Box key={step} sx={{ ...indicatorElement, ...(index <= currentStep && { backgroundColor: 'primary.main' }) }} />
-                ))}
-            </Box>
-            {stepperCounterStyle && stepperCounterStyle.position !== 'UP' && <Typography variant="body2" color="inherit" align="center">
-                Step {currentStep + 1} of {totalSteps}
-            </Typography>}
-        </Box>
+        <ClientContext.Consumer>
+            { clientCtx => {
+                const { settings: stepperTextSettings, sx:stepperTextSx} = clientCtx.clientSettings?.stepperText || {};
+                const { settings: stepperCounterSettings, sx:stepperCounterSx} = clientCtx.clientSettings?.stepperCounter || {};
+                return (
+                    <Box flexGrow={1}>
+                        {stepperTextSettings && stepperTextSettings.position === 'UP' && 
+                            <Typography variant="body2" color="inherit" align="center" sx={stepperTextSx}>
+                                Step {currentStep + 1} of {totalSteps}
+                            </Typography>
+                        }
+                        <Box sx={indicatorWrapper}>
+                            {stepsArray.map((step, index) => (
+                                <Box key={step} sx={
+                                    { 
+                                        ...indicatorElement,
+                                        ...stepperCounterSx,
+                                        ...(index <= currentStep && { 
+                                            backgroundColor: stepperCounterSettings?.selectedColor || 'primary.main' 
+                                        })
+                                    }
+                                } />
+                            ))}
+                        </Box>
+                        {stepperTextSettings && stepperTextSettings.position !== 'UP' && 
+                            <Typography variant="body2" color="inherit" align="center">
+                                Step {currentStep + 1} of {totalSteps}
+                            </Typography>
+                        }
+                    </Box>
+                )
+            }}
+        </ClientContext.Consumer>
     );
 };
 

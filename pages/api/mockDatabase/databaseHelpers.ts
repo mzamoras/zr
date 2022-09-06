@@ -18,13 +18,22 @@ export type IconInfo = {
     size: number;
     color: string;
     label: string;
+    className?: string;
+}
+
+type customColoring = {
+    color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" | undefined;
+}
+export type customColoringBar = {
+    color?: "inherit" | "primary" | "secondary" | "default" | "transparent" | undefined;
 }
 
 export type ButtonInfo = {
     label: string;
-    color: string;
+    color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" | undefined;
     action: string;
     icon?: string;
+    variant?: "contained" | "outlined" | "text" | undefined;
 }
 
 export type ControlOption = {
@@ -96,6 +105,28 @@ export type ThemeSettings = {
     }
 };
 
+export type ClientThemeSettings = {
+    buttons: IndividualSettings;
+    title: IndividualSettings;
+    subtitle: IndividualSettings;
+    stepperText: IndividualSettings;
+    stepperCounter: IndividualSettings;
+    icons: IndividualSettings;
+    card: IndividualSettings;
+    bar: IndividualSettings;
+    wrapper: IndividualSettings;
+}
+
+export type IndividualSettings = {
+    sx: {
+        [key:string]: string 
+    } & customColoring,
+    settings: {
+        [key:string]: string 
+    } & customColoring
+}
+
+
 export type Client = {
     id: number;
     name: string;
@@ -108,6 +139,7 @@ export type Client = {
         borderRadius?: string | number;
     };
     themeSettings?: ThemeSettings;
+    customerThemeSettings: ClientThemeSettings;
 };
 
 type Database = {
