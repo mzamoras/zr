@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
-import { Client, OnboardingStep, ThemeSettings } from '../../../pages/api/mockDatabase/databaseHelpers';
+import { Client, OnboardingStep, ThemeSettings, ClientThemeSettings, IndividualSettings } from '../../../pages/api/mockDatabase/databaseHelpers';
 import { createTheme, ThemeOptions } from '@mui/material/styles';
 import defaultTheme from '../../themes/default'; 
 
@@ -85,6 +85,16 @@ export function useClientThemeAndSettings(client: Client | null): [ThemeOptions,
         }
     }, [client]);
     return [clientTheme, clientStyles];
+}
+
+export function customStyling(style : { [key: string]: any }) : { [key: string]: any } | {} {
+    return ( style && { ...style });
+}
+
+
+export function extractThemeSettings( themeSettings: IndividualSettings) : IndividualSettings {
+    const { sx = {}, settings = {} } = themeSettings;
+    return { sx, settings };
 }
 
 const exportables = {

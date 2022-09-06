@@ -13,15 +13,19 @@ const iconWrapperStyle = {
 
 type StepIconProps = {
     children?: React.ReactNode;
-} & { iconInfo: IconInfo };
+} & { 
+    iconInfo: IconInfo,
+    iconSettings: { [key:string]: string } | undefined,
+    iconSx: { [key:string]: string } | undefined,
+};
 
-export default function StepIcon({ iconInfo } : StepIconProps) {
-    const { icon, label, color, size = 64 } = iconInfo;
+export default function StepIcon({ iconInfo, iconSettings, iconSx } : StepIconProps) {
+    const { icon, label, color, size = 64, className = 'material-icons' } = iconInfo;
     const iconStyle =  {'&.material-icons': { fontSize: (Number(size)), ...(color && { color }) }};
     
     return (
         <Box sx={iconWrapperStyle}>
-            <Icon sx={iconStyle} color="primary" className="material-icons-outlined">{icon}</Icon>
+            <Icon sx={{...iconStyle, ...(iconSx && { iconSx })}} color="primary" className={className}>{icon}</Icon>
             <Typography variant="subtitle2" color="inherit" component="div" align="center">
                 {label}
             </Typography>

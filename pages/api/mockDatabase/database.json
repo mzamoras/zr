@@ -172,6 +172,23 @@
                     },
                     "useIcons": false
                 }
+            },
+            "customerThemeSettings": {
+                "stepperText": {
+                    "sx": {},
+                    "settings": {
+                        "position": "UP"
+                    }
+                },
+                "card": {
+                    "sx": {
+                        "minHeight": "60vh",
+                        "borderRadius": "8px"
+                    },
+                    "settings": {
+                        "elevation": "0"
+                    }
+                }
             }
         },
         {
@@ -271,7 +288,146 @@
         },
         {
             "name": "Tesla",
-            "id": 3
+            "id": 3,
+            "steps":[
+                {
+                    "name": "General Information Tesla",
+                    "title": "Let us guide you in your first approach to electric mobility",
+                    "subtitle": "The most innovative electric car in the world",
+                    "slug": "onboarding",
+                    "icons":[
+                        {
+                            "icon": "power_off",
+                            "size": "64",
+                            "color": "primary.light",
+                            "className": "material-icons-outlined"
+                        },
+                        {
+                            "icon": "bolt",
+                            "size": "128",
+                            "color": "primary.main"
+                        },
+                        {
+                            "icon": "power_off",
+                            "size": "64",
+                            "color": "primary.dark"
+                        }
+                    ],
+                    "controls":[],
+                    "buttons": {
+                        "next": {
+                            "label": "Start creating your first vehicle set",
+                            "action": "next",
+                            "icon": "keyboard_arrow_right"
+                        }
+                    }
+                },
+                {
+                    "name": "General Information Tesla",
+                    "title": "title",
+                    "subtitle": "subtitle",
+                    "slug": "general-information",
+                    "icons":[],
+                    "controls":[
+                        {
+                            "type": "text",
+                            "label": "Company Name",
+                            "name": "company_name",
+                            "defaultValue": "",
+                            "placeholder": "type your company name here",
+                            "helperText": "Used to check incentive applicability and fuel prices",
+                            "validation": {
+                                "required": true,
+                                "minLength": 5,
+                                "maxLength": 20
+                            }
+                        }
+                    ],
+                    "buttons":{
+                        "next": {
+                            "label": "Next",
+                            "action": "next",
+                            "icon": "keyboard_arrow_right",
+                            "variant": "contained",
+                            "color": "primary"
+                        },
+                        "prev": {
+                            "label": "Back",
+                            "action": "prev",
+                            "icon": "keyboard_arrow_left",
+                            "variant": "outlined",
+                            "color": "primary"
+                        }
+                    }
+                }
+            ],
+            "customerThemeSettings": {
+                "buttons": {
+                    "sx": {
+                        "borderRadius": "4px",
+                        "padding": "5px 30px"
+                    },
+                    "settings": {
+                        "useIcons": false
+                    }
+                },
+                "icons": {
+                    "sx": {},
+                    "settings": {}
+                },
+                "stepperCounter": {
+                    "sx": {
+                        "backgroundColor": "#CCC"
+                    },
+                    "settings": {
+                        "selectedColor": "primary.main"
+                    }
+                },
+                "stepperText": {
+                    "sx": {
+                        "color":"primary.main"
+                    },
+                    "settings": {
+                        "position": "UP"
+                    }
+                },
+                "title": {
+                    "sx": {
+                        "fontWeight": "500"
+                    },
+                    "settings": {}
+                },
+                "subtitle": {
+                    "sx": {},
+                    "settings": {}
+                }, 
+                "bar": {
+                    "sx": {
+                        "backgroundColor": "#F0F3F5",
+                        "borderBottom": "1px solid #E0E0E0"
+                    },
+                    "settings": {
+                        "color":"primary"
+                    }
+                },
+                "card": {
+                    "sx": {
+                        "minHeight": "60vh",
+                        "backgroundColor": "#F0F3F5"
+                    },
+                    "settings": {
+                        "elevation": "0"
+                    }
+                },
+                "wrapper": {
+                    "sx": {
+                        "width": "100%"
+                    },
+                    "settings": {
+                        "maxWidth": "lg"
+                    }
+                }
+            }
         },
         {
             "name": "Toyota",
@@ -451,6 +607,29 @@
                         "padding": "5px 30px"
                     },
                     "useIcons": true
+                }
+            },
+            "customerThemeSettings": {
+                "stepperText": {
+                    "sx": {},
+                    "settings": {
+                        "position": "UP"
+                    }
+                },
+                "card": {
+                    "sx": {
+                        "minHeight": "60vh",
+                        "borderRadius": "8px"
+                    },
+                    "settings": {
+                        "elevation": "0"
+                    }
+                },
+                "buttons": {
+                    "sx": {},
+                    "settings": {
+                        "useIcons": true
+                    }
                 }
             }
         },

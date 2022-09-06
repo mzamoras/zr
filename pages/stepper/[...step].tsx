@@ -11,7 +11,9 @@ import { ButtonSection } from "../../src/components/global/ButtonSection";
 import IconsSection from "../../src/components/global/IconsSection";
 import { ControlsSection } from "../../src/components/global/ControlsSection";
 import StepTitle from "../../src/components/onboarding/StepTitle";         
-import { ThemeProvider } from '@mui/material/styles';
+import { Breakpoint, ThemeProvider } from '@mui/material/styles';
+import ClientContext from "../../src/globalContext";
+import { customColoringBar } from "../api/mockDatabase/databaseHelpers";
 
 
 const containerStyle = {
@@ -30,6 +32,12 @@ const Stepper = ({ customers = [] }) => {
     const [canGoNext, setCanGoNext] = React.useState(false);
     const [onboardingForm, setOnboardingForm] = React.useState({});
     const [clientTheme, clientStyles] = useClientThemeAndSettings(client);
+    const clientCtx = {
+        currentClient: client,
+        currentStep: currentStepObject,
+        currentStepIndex,
+        clientSettings: client?.customerThemeSettings,
+    }
 
     const onNext = (e: React.SyntheticEvent) => {
         setCanGoNext(true);
@@ -45,25 +53,29 @@ const Stepper = ({ customers = [] }) => {
         setCanGoNext(!(currentStepObject && currentStepObject.controls?.length && currentStepIndex));
     }, [currentStepObject, currentStepIndex]);
 
+    const { settings: cardSettings = {}, sx: cardSx = {} } = clientCtx.clientSettings?.card || {};
+    const { settings: wrapperSettings = {}, sx: wrapperSx = {} } = clientCtx.clientSettings?.wrapper || {};
+    const { settings: barSettings = {}, sx: barSx = {} } = clientCtx.clientSettings?.bar || {};
+    const barColor = barSettings?.color || 'secondary';
     return (
         <ThemeProvider theme={clientTheme}>
-            <React.Fragment>
-                <AppBar position="static" color="secondary">
+            <ClientContext.Provider value={clientCtx}>
+                <AppBar position="static" color={barColor as "inherit" | "primary" | "secondary" | "default" | "transparent" | undefined} sx={{...barSx || {}}} elevation={Number(barSettings.elevation || 0)}>
                     <Toolbar>
-                        <StepIndicator currentStep={currentStepIndex} totalSteps={totalSteps} clientName={client?.name} clientSettings={clientStyles}/>
+                        <StepIndicator currentStep={currentStepIndex} totalSteps={totalSteps} />
                     </Toolbar>
                 </AppBar>
-                <Container maxWidth="lg" sx={containerStyle}>
-                    <Card sx={{ minHeight: '60vh', ...(client?.theme?.borderRadius && {borderRadius: client?.theme?.borderRadius}) }} elevation={0}>
+                <Container maxWidth={wrapperSettings.maxWidth as Breakpoint || 'lg'} sx={{...containerStyle, ...wrapperSx}}>
+                    <Card sx={{ ...cardSx }} elevation={Number(cardSettings?.elevation || 0)}>
                         <Grid container spacing={2} height="100%">
                             <StepTitle stepInfo={currentStepObject} clientSettings={clientStyles} />
                             <IconsSection icons={currentStepObject?.icons} />
                             <ControlsSection controls={currentStepObject?.controls} onChange={onFormChange}/>
-                            <ButtonSection onNext={onNext} onPrev={goPrev} buttons={currentStepObject?.buttons} canGoNext={canGoNext} clientSettings={clientStyles}/>
+                            <ButtonSection onNext={onNext} onPrev={goPrev} canGoNext={canGoNext} />
                         </Grid>
                     </Card>
                 </Container>
-            </React.Fragment>
+            </ClientContext.Provider>
         </ThemeProvider>
     );
 };

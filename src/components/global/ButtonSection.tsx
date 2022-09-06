@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
 import Box from '@mui/material/Box';
-import { ScreenButtons, ThemeSettings } from "../../../pages/api/mockDatabase/databaseHelpers";
+import ClientContext from "../../globalContext";
 
 const boxStyle = {
     display: 'flex',
@@ -17,32 +17,37 @@ type ButtonSectionProps = {
     onNext: (e: React.SyntheticEvent) => void;
     onPrev: (e: React.SyntheticEvent) => void;
     canGoNext: boolean;
-    buttons?: ScreenButtons;
-    clientSettings?: ThemeSettings
-
 };
-export const ButtonSection = ({ onNext, onPrev, buttons, canGoNext, clientSettings }: ButtonSectionProps) => {
-    const bothDirections = buttons?.prev && buttons?.next;
-    const { sx, useIcons } = clientSettings?.buttons || {};
-
+export const ButtonSection = ({ onNext, onPrev, canGoNext }: ButtonSectionProps) => {
+    
     return (
         <Grid item xs={12}>
-            <Box sx={{...boxStyle, justifyContent: bothDirections ? 'space-between' : 'center'}}>
-                {/* PREV BUTTON CONFIGURATION */}
-                {!!buttons?.prev && 
-                    <Button onClick={onPrev} variant="contained" disableElevation sx={sx}>
-                        {buttons.prev.icon && useIcons && <Icon>{buttons.prev.icon}</Icon>}
-                        {buttons.prev.label || 'Previous'}
-                    </Button>
-                }
-                {/* NEXT BUTTON CONFIGURATION */}
-                {!!buttons?.next &&
-                    <Button onClick={onNext} disabled={!canGoNext} variant="contained" disableElevation sx={sx}>
-                        {buttons.next.label || 'Next'}
-                        {buttons.next.icon && useIcons && <Icon>{buttons.next.icon}</Icon>}
-                    </Button>
-                }
-            </Box>
+            <ClientContext.Consumer>
+                { clientCtx => {
+                    const { settings: buttonSettings, sx:buttonsSx} = clientCtx.clientSettings?.buttons || {};
+                    const { next: nextBtn, prev: prevBtn } = clientCtx.currentStep?.buttons || {};
+                    const bothDirections = nextBtn && prevBtn;
+                    
+                    return (
+                        <Box sx={{...boxStyle, justifyContent: bothDirections ? 'space-between' : 'center'}}>
+                            {/* PREV BUTTON CONFIGURATION */}
+                            {!!prevBtn && 
+                                <Button onClick={onPrev} variant={prevBtn?.variant || 'contained'} disableElevation color={prevBtn.color} sx={{...buttonsSx}}>
+                                    {prevBtn.icon && buttonSettings?.useIcons && <Icon>{prevBtn.icon}</Icon>}
+                                    {prevBtn.label || 'Previous'}
+                                </Button>
+                            }
+                            {/* NEXT BUTTON CONFIGURATION */}
+                            {!!nextBtn &&
+                                <Button onClick={onNext} disabled={!canGoNext} variant={nextBtn?.variant || 'contained'} disableElevation color={nextBtn.color} sx={{...buttonsSx}}>
+                                    {nextBtn.label || 'Next'}
+                                    {nextBtn.icon && buttonSettings?.useIcons && <Icon>{nextBtn.icon}</Icon>}
+                                </Button>
+                            }
+                        </Box>
+                    );
+                }}
+            </ClientContext.Consumer>
         </Grid>
     );
 };
